@@ -1,49 +1,50 @@
-import { useState } from 'react';
-import { close, logo, menu } from '../assets';
-import { navLinks } from "../Constants";
+import { useState } from 'react'
+import { close, logo, menu } from '../assets'
+import { navLinks } from '../Constants'
 
 const Navbar = () => {
-  const [active, setActive] = useState("Home");
-  const [toggle, setToggle] = useState(false);
+  const [active, setActive] = useState('Home')
+  const [toggle, setToggle] = useState(false)
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" />
-
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+    <nav className="navbar flex w-full items-center justify-between py-6">
+      <img src={logo} alt="hoobank" className="-mr-20 h-[32px] w-[128px]" />
+      <p className="text-gradient flex-1 font-poppins text-[12px] font-semibold text-white ss:text-[32px]">
+        [REDACTED-TITLE]
+      </p>
+      <ul className="hidden flex-1 list-none items-center justify-end sm:flex">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title ? "text-white" : "text-dimWhite"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+            className={`cursor-pointer font-poppins text-[16px] font-normal ${
+              active === nav.title ? 'text-white' : 'text-dimWhite'
+            } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
             onClick={() => setActive(nav.title)}
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
           </li>
         ))}
       </ul>
-
-      <div className="sm:hidden flex flex-1 justify-end items-center">
+      <div className="flex flex-1 items-center justify-end sm:hidden">
         <img
           src={toggle ? close : menu}
           alt="menu"
-          className="w-[28px] h-[28px] object-contain"
+          className="h-[28px] w-[28px] object-contain"
           onClick={() => setToggle(!toggle)}
         />
 
         <div
           className={`${
-            !toggle ? "hidden" : "flex"
-          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+            !toggle ? 'hidden' : 'flex'
+          } bg-black-gradient sidebar absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl p-6`}
         >
-          <ul className="list-none flex justify-end items-start flex-1 flex-col">
+          <ul className="flex flex-1 list-none flex-col items-start justify-end">
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
+                className={`cursor-pointer font-poppins text-[16px] font-medium ${
+                  active === nav.title ? 'text-white' : 'text-dimWhite'
+                } ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'}`}
                 onClick={() => setActive(nav.title)}
               >
                 <a href={`#${nav.id}`}>{nav.title}</a>
@@ -53,7 +54,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

@@ -1,5 +1,16 @@
-import styles from '../style';
-import { Navbar, Hero, Stats, Business, Billing, CardDeal, Testimonials, Clients, CTA, Footer } from "../Components";
+import styles from '../style'
+import {
+  Navbar,
+  Hero,
+  Stats,
+  Business,
+  Transactions,
+  CardDeal,
+  ClientFeedBack,
+  Clients,
+  Information,
+  Footer,
+} from '../Components'
 
 const AppContainer = () => (
   <>
@@ -17,14 +28,14 @@ const AppContainer = () => (
       <div className={`${styles.boxWidth}`}>
         <Stats />
         <Business />
-        <Billing />
+        <Transactions />
         <CardDeal />
-        <Testimonials />
+        <ClientFeedBack />
         <Clients />
-        <CTA />
+        <Information />
         <Footer />
       </div>
     </div>
   </>
-);
-export default AppContainer;
+)
+export default AppContainer

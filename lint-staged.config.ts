@@ -1,11 +1,10 @@
 module.exports = {
-  '**/*.(ts|tsx)': () => 'yarn tsc --noEmit',
+  '**/*.(ts|tsx)': () => 'npm tsc --noEmit',
   '**/*.(ts|tsx|js)': (filenames) => [
-    `yarn eslint --fix ${filenames.join(' ')}`,
-    `yarn prettier --write ${filenames.join(' ')}`,
+    `npm eslint --fix ${filenames.join(' ')}`,
+    `npm prettier --write ${filenames.join(' ')}`,
   ],
 
-  // Format MarkDown and JSON
   '**/*.(md|json)': (filenames) =>
-    `yarn prettier --write ${filenames.join(' ')}`,
+    `npm prettier --write ${filenames.join(' ')}`,
 }
